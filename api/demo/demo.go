@@ -12,8 +12,8 @@ type handler struct{}
 func NewHandler(rg *gin.RouterGroup) {
 	hd := handler{}
 
-	tutors := rg.Group("/demo")
-	tutors.GET("/data", hd.getDemoData)
+	demoGroup := rg.Group("/demo")
+	demoGroup.GET("/data", hd.getDemoData)
 }
 
 func (hd *handler) getDemoData(c *gin.Context) {
