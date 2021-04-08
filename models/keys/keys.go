@@ -10,5 +10,5 @@ func RedisKey(args ...string) string {
 
 // define Prefix of a group of redis keys
 const (
-	PfxRateLimiter = "rateLimiter"
+	PfxRatelimiter = "ratelimiter"
 )
