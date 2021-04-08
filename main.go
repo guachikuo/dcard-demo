@@ -12,7 +12,9 @@ import (
 
 func main() {
 	// set the standard logger formatter
-	logrus.SetFormatter(&logrus.TextFormatter{ForceColors: true})
+	logrus.SetFormatter(&logrus.TextFormatter{
+		ForceColors: true,
+	})
 
 	gin.SetMode(gin.ReleaseMode)
 
@@ -25,7 +27,7 @@ func main() {
 	rt := ratelimiter.New(rdb)
 
 	router := gin.Default()
-	apiRouter := router.Group("/api", api.IPRateLimiter(rt))
+	apiRouter := router.Group("/api/v1", api.IPRateLimiter(rt))
 
 	demo.NewHandler(apiRouter)
 

@@ -7,7 +7,7 @@ sh run.sh
 ```
 2. 打 api 測試
 ```
-GET localhost:8080/api/demo/data
+GET localhost:8080/api/v1/demo/data
 ```
 3. response header 會提供
 ```
