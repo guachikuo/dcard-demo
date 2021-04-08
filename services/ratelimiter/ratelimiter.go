@@ -24,8 +24,8 @@ const (
 
 var Validators = map[ValidatorName]Validator{
 	ValidatorGlobalIPLimit: Validator{
-		Count:  10,
-		Period: 10,
+		Count:  60,
+		Period: 60,
 	},
 }
 
