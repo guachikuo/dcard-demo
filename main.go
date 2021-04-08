@@ -25,7 +25,7 @@ func main() {
 	rt := ratelimiter.New(rdb)
 
 	router := gin.Default()
-	apiRouter := router.Group("/api", api.IpRateLimiter(rt))
+	apiRouter := router.Group("/api", api.IPRateLimiter(rt))
 
 	demo.NewHandler(apiRouter)
 

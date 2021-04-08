@@ -47,16 +47,16 @@ func (im *impl) Validate(ctx context.Context, name ValidatorName, refArg string)
 	}
 
 	limitCnt := validator.Count
-	if limitCnt <= 0 {
+	if limitCnt == 0 {
 		return false, 0, 0, nil
 	}
 
 	period := validator.Period
-	if period <= 0 {
+	if period == 0 {
 		return true, 1, 0, nil
 	}
 
-	key := keys.RedisKey(keys.PfxRateLimiter, string(name), refArg)
+	key := keys.RedisKey(keys.PfxRatelimiter, string(name), refArg)
 	ret, err := im.rdb.ScriptDo(ctx, script, []string{key}, limitCnt, period)
 	if err != nil {
 		logrus.WithField("err", err).Error("rdb.ScriptDo failed in Validate")

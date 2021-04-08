@@ -9,7 +9,7 @@ import (
 	"github.com/guachikuo/dcard-demo/services/ratelimiter"
 )
 
-func IpRateLimiter(rt ratelimiter.Service) gin.HandlerFunc {
+func IPRateLimiter(rt ratelimiter.Service) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ip := c.ClientIP()
 
